@@ -14,7 +14,7 @@ import tkinter as tk
 
 # 定義一個函數提取txt文件中的引文信息，並形成對應的adjacency matrix
 # 輸入txt文件所在地址
-def creat_adjacency_matrix(file_path = '.\savedrecs.txt'):
+def creat_adjacency_matrix(file_path = '.\\savedrecs.txt'):
     # 預編譯正則表達式
     re_title_needed = re.compile(r'^PT\s|TI\s|AB\s|CR\s|PY\s|DI\s')            #感興趣類別的行首提示符
     re_title_other = re.compile(r'^[0-9A-Z]{2}\s')                             #任意兩位數字與字母開頭的提示符
