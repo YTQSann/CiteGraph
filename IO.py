@@ -6,8 +6,8 @@ Created on Tue Feb 11 20:34:42 2020
 """
 
 import re
-import pandas as pd
 import numpy as np
+import pandas as pd
 import networkx as nx
 from matplotlib import pyplot as plt
 import tkinter as tk
@@ -84,7 +84,7 @@ def creat_adjacency_matrix(file_path = '.\\savedrecs.txt'):
                 ref_count = ref_count+1
         for i in range(ref_count):                                             #預留每個文獻的被引列表
             data_dict['CRed'].append([])
-            
+
     # 利用pandas統計各文獻被引情況
     data_df = pd.DataFrame(data_dict).sort_values(by='PY').set_index(pd.Index(list(range(ref_count)))) #利用DataFrame記錄數據，按年份排序，並調整index
     graph_df = pd.DataFrame(np.zeros((ref_count,ref_count),dtype=int),
@@ -104,21 +104,17 @@ def creat_adjacency_matrix(file_path = '.\\savedrecs.txt'):
     plt.show()
 
 # 定義一個描述tkGUI的類
-class My_tkGUI(tk.Frame):
-    def __init__(self, master=None):
-        tk.Frame.__init__(self, master)
-        self.pack()
-        self.createWidgets()
+# class My_tkGUI(tk.Frame):
+#     def __init__(self, master=None):
+#         tk.Frame.__init__(self, master)
+#         self.pack()
+#         self.createWidgets()
 
-    def createWidgets(self):
-        self.helloLabel = tk.Label(self, text='Hello, world!')
-        self.helloLabel.pack()
-        self.quitButton = tk.Button(self, text='Quit', command=self.quit)
-        self.quitButton.pack()
+#     def createWidgets(self):
+#         self.helloLabel = tk.Label(self, text='Hello, world!')
+#         self.helloLabel.pack()
+#         self.quitButton = tk.Button(self, text='Quit', command=self.quit)
+#         self.quitButton.pack()
 
 # 運行
-print(creat_adjacency_matrix())
-        #if __name__=='__main__':
-         #   my_tkGUI = My_tkGUI()
-          #  my_tkGUI.master.title('Hello World')
-           # my_tkGUI.mainloop()
+creat_adjacency_matrix()
